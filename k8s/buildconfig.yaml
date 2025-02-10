@@ -4,7 +4,6 @@ metadata:
   name: scratch-webhook
 spec:
   nodeSelector: null
-  output: {}
   resources: {}
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
@@ -15,10 +14,11 @@ spec:
         kind: ImageStreamTag
         namespace: openshift
         name: 'python:3.12-ubi9'
-      to:
-        kind: ImageStreamTag
-        namespace: scratch 
-        name: 'scratch-webhook:latest'
+  output:
+    to:
+      kind: ImageStreamTag
+      namespace: scratch 
+      name: 'scratch-webhook:latest'
   postCommit: {}
   source:
     type: Git
